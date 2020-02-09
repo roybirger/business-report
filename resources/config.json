@@ -1,9 +1,25 @@
 {
-
-  "Auth": {
-    "user_name": "awesomeu.user@gmake.con",
-    "password": "secret",
-    "account_sid": "12aa34bb56cc78dd90ee",
-    "auth_token": "qwertyuiop"
-  }
+  "params": {
+    "storage": {
+      "type": "fs",
+      "base_dir": "/tmp/"
+    }
+  },
+  "accounts": [
+    {
+      "name": "cooluser",
+      "auth": {
+        "user_name": "cool@user.com",
+        "password": "secret",
+        "account_sid": "account123",
+        "auth_token": "auth123"
+      },
+      "clients": [
+        {
+          "name": "client123",
+          "initial_report_date": "02/05/2020"
+        }
+      ]
+    }
+  ]
 }
