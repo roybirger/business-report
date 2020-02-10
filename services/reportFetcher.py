@@ -36,7 +36,8 @@ class ReportFetcher:
         headers["Sec-Fetch-Site"] = "same-origin"
         headers["Sec-Fetch-User"] = "?1"
         headers["User-Agent"] = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36"
-        headers["Cookie"] = "aws-ubid-main=302-6030803-4340444; aws-account-alias=feedvisor-production-account; " +\
+        headers["Cookie"] = "aws-account-alias=feedvisor-production-account; " +\
+                            "aws-ubid-main=204-5143614-0315015; " +\
                             "; ".join(list(map(lambda cookie: cookie["name"] + "=" + cookie["value"], auth_data)))
 
         r = requests.post(self.report_url, data=payload, headers=headers)

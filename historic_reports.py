@@ -16,11 +16,14 @@ if __name__ == "__main__":
 
         try:
 
-            auth_data = AuthenticationManger(account["auth"]).login()
+            auth_mgr = AuthenticationManger(account["auth"])
+            auth_mgr.login()
 
             for client in account["clients"]:
 
                 print("Client: " + client["name"])
+
+                auth_data = auth_mgr.select_client(client["name"])
 
                 from_date = datetime.strptime(client["initial_report_date"], "%m/%d/%Y").date()
                 to_date = from_date + timedelta(days=1)
@@ -42,4 +45,8 @@ if __name__ == "__main__":
 
         except Exception:
             print("Report process failed for account: " + account["name"])
+            if auth_mgr is not None:
+                auth_mgr.logout()
             continue
+
+        auth_mgr.logout()
